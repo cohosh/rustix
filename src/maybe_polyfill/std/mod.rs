@@ -29,6 +29,10 @@ pub mod os {
         pub use std::os::wasi::io::{
             AsFd, AsRawFd, BorrowedFd, FromRawFd, IntoRawFd, OwnedFd, RawFd,
         };
+        #[cfg(target_os = "hermit")]
+        pub use std::os::hermit::io::{
+            AsFd, AsRawFd, BorrowedFd, FromRawFd, IntoRawFd, OwnedFd, RawFd,
+        };
     }
 
     #[cfg(windows)]

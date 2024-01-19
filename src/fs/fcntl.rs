@@ -102,7 +102,8 @@ pub fn fcntl_add_seals<Fd: AsFd>(fd: Fd, seals: SealFlags) -> io::Result<()> {
     target_os = "fuchsia",
     target_os = "redox",
     target_os = "vita",
-    target_os = "wasi"
+    target_os = "wasi",
+    target_os = "hermit"
 )))]
 #[inline]
 #[doc(alias = "F_SETLK")]

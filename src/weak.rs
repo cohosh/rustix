@@ -135,6 +135,7 @@ mod libc {
     }
 }
 
+#[cfg(not(target_os = "hermit"))]
 unsafe fn fetch(name: &str) -> *mut c_void {
     let name = match CStr::from_bytes_with_nul(name.as_bytes()) {
         Ok(c_str) => c_str,

@@ -71,7 +71,7 @@ use alloc::borrow::ToOwned;
 use alloc::string::String;
 #[cfg(apple)]
 use c::TCP_KEEPALIVE as TCP_KEEPIDLE;
-#[cfg(not(any(apple, target_os = "openbsd", target_os = "haiku", target_os = "nto")))]
+#[cfg(not(any(apple, target_os = "openbsd", target_os = "haiku", target_os = "nto", target_os = "hermit")))]
 use c::TCP_KEEPIDLE;
 use core::mem::{size_of, MaybeUninit};
 use core::time::Duration;
@@ -585,7 +585,8 @@ pub(crate) fn set_ipv6_add_membership(
         solarish,
         target_os = "haiku",
         target_os = "l4re",
-        target_os = "nto"
+        target_os = "nto",
+        target_os = "hermit"
     )))]
     use c::IPV6_ADD_MEMBERSHIP;
     #[cfg(any(
@@ -640,7 +641,8 @@ pub(crate) fn set_ipv6_drop_membership(
         solarish,
         target_os = "haiku",
         target_os = "l4re",
-        target_os = "nto"
+        target_os = "nto",
+        target_os = "hermit"
     )))]
     use c::IPV6_DROP_MEMBERSHIP;
     #[cfg(any(

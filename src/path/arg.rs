@@ -17,7 +17,7 @@ use core::{ptr, slice, str};
 #[cfg(feature = "std")]
 use std::ffi::{OsStr, OsString};
 #[cfg(all(feature = "std", target_os = "hermit"))]
-use std::os::hermit::ext::ffi::{OsStrExt, OsStringExt};
+use std::os::hermit::ffi::{OsStrExt, OsStringExt};
 #[cfg(all(feature = "std", unix))]
 use std::os::unix::ffi::{OsStrExt, OsStringExt};
 #[cfg(all(feature = "std", target_os = "vxworks"))]

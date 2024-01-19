@@ -5,7 +5,7 @@
 //! See the `rustix::backend::syscalls` module documentation for details.
 
 use crate::backend::c;
-#[cfg(not(target_os = "wasi"))]
+#[cfg(not(any(target_os = "wasi", target_os = "hermit")))]
 use crate::backend::conv::ret_pid_t;
 use crate::backend::conv::{borrowed_fd, ret};
 use crate::fd::BorrowedFd;

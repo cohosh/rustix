@@ -1248,7 +1248,8 @@ pub(crate) fn fcntl_add_seals(fd: BorrowedFd<'_>, seals: SealFlags) -> io::Resul
     target_os = "fuchsia",
     target_os = "redox",
     target_os = "vita",
-    target_os = "wasi"
+    target_os = "wasi",
+    target_os = "hermit"
 )))]
 #[inline]
 pub(crate) fn fcntl_lock(fd: BorrowedFd<'_>, operation: FlockOperation) -> io::Result<()> {

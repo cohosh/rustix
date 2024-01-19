@@ -101,7 +101,7 @@ pub(super) fn ret_off_t(raw: c::off_t) -> io::Result<c::off_t> {
     }
 }
 
-#[cfg(not(any(windows, target_os = "wasi")))]
+#[cfg(not(any(windows, target_os = "wasi", target_os = "hermit")))]
 #[inline]
 pub(super) fn ret_pid_t(raw: c::pid_t) -> io::Result<c::pid_t> {
     if raw == -1 {

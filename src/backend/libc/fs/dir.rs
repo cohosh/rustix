@@ -30,10 +30,12 @@ use crate::io;
 #[cfg(feature = "process")]
 use crate::process::fchdir;
 use alloc::borrow::ToOwned;
-#[cfg(not(any(linux_like, target_os = "hurd")))]
+#[cfg(not(any(linux_like, target_os = "hurd", target_os = "hermit")))]
 use c::readdir as libc_readdir;
 #[cfg(any(linux_like, target_os = "hurd"))]
 use c::readdir64 as libc_readdir;
+#[cfg(target_os = "hermit")]
+use hermit::fs::readdir as libc_readdir;
 use core::fmt;
 use core::ptr::NonNull;
 use libc_errno::{errno, set_errno, Errno};
